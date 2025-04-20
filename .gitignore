@@ -1,0 +1,48 @@
+notepad .gitignore
+```    *   Paste the following content into the file:
+```gitignore
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments (though conda usually installs centrally)
+# /radix_task/
+# /venv/
+# /.venv/
+
+# Sensitive information
+.env # IMPORTANT - Exclude your API key file!
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Log files
+*.log
+logs/
+
+# Temporary data / Uploads (if you create such folders)
+/data/temp/
+/uploads/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+/dist/
+/build/
+*.egg-info/
+*.egg
+
+# Docker cache / artifacts (optional but good practice)
+.dockerignore
+docker-compose.yml # If added later, might want to commit structure but ignore overrides
+docker-compose.override.yml
+```    *   **Save and close the file.**
