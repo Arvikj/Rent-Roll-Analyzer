@@ -30,6 +30,9 @@ logs/
 # Temporary data / Uploads (if you create such folders)
 /data/temp/
 /uploads/
+/sample_data/
+/Outputs/ 
+/Old_attempts/
 
 # OS generated files
 .DS_Store
