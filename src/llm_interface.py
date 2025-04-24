@@ -150,7 +150,7 @@ Rules
 Cleaning rules
 --------------
 • Strip "$", ","; treat "(123)" as –123; blanks/dashes → 0.
-• If a field cannot be derived, output `null`.
+• If a field cannot be derived/does not exist or if the values are all blank, output `null`.
 • **Respond ONLY with the JSON.  No markdown, text or commentary.**
 
 File name : "{fname}"
@@ -168,3 +168,80 @@ def extract_json_slice(text: str) -> str:
     i = text.find("{")
     j = text.rfind("}")
     return text[i : j + 1] if 0 <= i < j else text
+
+
+
+# --------------------------------------------------------------------
+# Plain call for simpler model 
+# --------------------------------------------------------------------
+def call_gemini_simple(prompt: str, model: str = "gemini-2.0-flash-lite") -> str:
+    resp = client.models.generate_content(
+        model=model,
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            temperature=0.15,
+            # response_mime_type="text/plain",
+        ),
+    )
+    return resp.text.strip()
+
+
+# --------------------------------------------------------------------
+# Quick insights – JSON only (5-6 useful bullets)
+# --------------------------------------------------------------------
+def quick_insights(summary_json: dict) -> str:
+    prompt = f"""
+You are a multifamily analyst. Produce 5–6 concise, actionable bullet-point with helpful and detailed
+insights for a property manager based on this rent-roll data SUMMARY JSON.
+Avoid restating obvious figures; instead, highlight occupancy risks,
+opportunities to raise rents, unusual charge codes, and any red flags or any other remaining extremely important points to highlight.
+Do not say here are some actionable insights or use any form of introductory text, directly provide the insights.
+**Output format**:
+- Use a hyphen + space for each bullet (`- `).
+- Ensure proper spacing around numbers and punctuation and between two words. DO not try to markdown any italics or bold fonts, strictly.
+- One bullet per line, no run-ons.
+
+SUMMARY JSON:
+{json.dumps(summary_json, indent=2)}
+"""
+    return call_gemini_simple(prompt)
+
+
+
+# --- Comparison Insights Generation ---
+def compare_insights(results_dict: dict) -> str:
+    """Calls Gemini to generate comparison insights across multiple results."""
+    if not results_dict or len(results_dict) < 2:
+        return "- Cannot generate comparison with fewer than two results."
+
+    # Prepare data, filtering potentially bad entries
+    comparison_data = {}
+    for key, res in results_dict.items():
+        if isinstance(res, dict) and 'file' in res and 'total_units' in res: # Basic check
+             comparison_data[res['file']] = {k: res.get(k) for k in REQUIRED_KEYS} # Include all required keys
+        else:
+             logging.warning(f"Skipping potentially malformed result item in comparison: key={key}")
+
+    if len(comparison_data) < 2:
+        return "- Not enough valid results for comparison."
+
+    prompt = (f"As an experienced multifamily real estate asset manager, analyze these summarized rent roll extracts from different properties or time periods. "
+              f"Provide 5-6 concise, strategic bullet-point observations comparing the results. Focus on:\n"
+              f"*   Significant differences in Occupancy Rates and potential reasons/implications.\n"
+              f"*   Variations in Average Rent and Actual vs Market Rent performance.\n"
+              f"*   Noticeable differences in Total Units or Square Footage.\n"
+              f"*   Contrasting charge code contributions or patterns (if data allows).\n"
+              f"*   Overall performance trends or outliers across the dataset.\n\n"
+              f"RULES:\n"
+              f"- Prioritize comparative insights and actionable observations.\n"
+              f"- Start each point with '- '.\n"
+              f"- Be specific where possible (e.g., 'Property A has 10% higher occupancy than B').\n"
+              f"- Do NOT use markdown formatting.\n"
+              f"- Do NOT just restate the obvious, provide actually useful, accurate and deep insights.\n"
+              f"- Do NOT include introductory or concluding remarks.\n\n"
+              f"Summarized Data for Comparison:\n"
+              f"{json.dumps(comparison_data, indent=2, default=str)}") # Added default=str
+
+    logging.info(f"Calling Gemini for comparison insights based on {len(comparison_data)} results.")
+    raw_insight = call_gemini_simple(prompt, model="gemini-2.0-flash") # Use Flash
+    return raw_insight

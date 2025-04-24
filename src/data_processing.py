@@ -9,7 +9,7 @@ import re
 from typing import Any, Dict, List, Tuple, Union, cast
 
 import pandas as pd
-from llm_interface import REQUIRED_KEYS
+from .llm_interface import REQUIRED_KEYS
 # --------------------------------------------------------------------
 # Helpers (unchanged)
 # --------------------------------------------------------------------
@@ -99,7 +99,7 @@ def serialize(parsed: Union[pd.DataFrame, Dict[str, Any]]) -> Any:
 
 # –– THINKING-BUDGET HEURISTIC ––
 def clamp_budget(data_rows: int) -> int:
-    if data_rows <= 100:
+    if data_rows <= 150:
         return 0
     return min(max(data_rows * 2, 512), 2048)
 

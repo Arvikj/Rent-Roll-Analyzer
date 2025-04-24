@@ -11,8 +11,8 @@ import logging
 import time
 from pathlib import Path
 
-import file_parser
-from llm_interface import (
+from . import file_parser
+from .llm_interface import (
     CALL_TIMEOUT,
     JSON_DELAY,
     _call_with_timeout,

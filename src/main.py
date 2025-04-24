@@ -8,7 +8,7 @@ from __future__ import annotations
 import argparse
 import logging
 
-import pipeline
+from . import pipeline
 
 
 def main() -> None:
