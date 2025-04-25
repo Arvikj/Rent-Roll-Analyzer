@@ -4,7 +4,7 @@ This project is designed to help analysts and real estate professionals extract 
 
 The tool supports Excel, CSV, and PDF documents and allows both batch processing and an interactive web interface to review results, generate insights, and compare properties. It’s built to be modular, easy to use, and adaptable to new formats or requirements down the line.
 
-**Live App**: [https://arvikj-aileaseinsights.streamlit.app](https://arvikj-aileaseinsights.streamlit.app)
+**Live App**: [AI Lease Insights](https://arvikj-aileaseinsights.streamlit.app/)
 
 ---
 
