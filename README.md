@@ -32,39 +32,31 @@ Along the way, I focused not only on getting results, but on building something 
 
 ## A Quick Example
 
-Here’s an example of the structured output the tool generates(More examples of actual outputs can be found in the `Outputs` directory):
+Here’s an example of the structured output the tool generates:
 
 ```json
 {
-  "summary_section_found": true,
-  "total_units": 16,
-  "total_actual_rent": 14527.0,
-  "average_rent": 907.94,
-  "occupancy_rate": 0.9375,
-  "total_market_rent": 16075.0,
-  "total_square_feet": 13630.0,
+  "summary_section_found": false,
+  "total_units": 199,
+  "total_actual_rent": 168887.0,
+  "average_rent": 848.68,
+  "occupancy_rate": 0.7939698492462312,
+  "total_market_rent": 260808.0,
+  "total_square_feet": 150007.0,
   "status_breakdown": [
     {
-      "status": "Occupied No Notice",
-      "count": 15
+      "status": "Current",
+      "count": 158
     },
     {
-      "status": "Vacant Unrented Not Ready",
-      "count": 1
+      "status": "Vacant-Unrented",
+      "count": 41
     }
   ],
   "charge_codes": [
     {
-      "charge_type": "garage_rent",
-      "total_amount": 500.0
-    },
-    {
-      "charge_type": "pet_rent_monthly",
-      "total_amount": 150.0
-    },
-    {
-      "charge_type": "rent",
-      "total_amount": 14527.0
+      "charge_type": "past_due",
+      "total_amount": 11900.07
     }
   ]
 }
