@@ -1,0 +1,57 @@
+{
+  "summary_section_found": true,
+  "total_units": 360,
+  "total_actual_rent": 502224.0,
+  "average_rent": 1395.07,
+  "occupancy_rate": 0.9527,
+  "total_market_rent": 524350.0,
+  "total_square_feet": 447408.0,
+  "status_breakdown": [
+    {
+      "status": "Occupied",
+      "count": 343
+    },
+    {
+      "status": "Vacant",
+      "count": 17
+    },
+    {
+      "status": "Future Resident/Applicant",
+      "count": 14
+    },
+    {
+      "status": "Non Rev",
+      "count": 0
+    }
+  ],
+  "charge_codes": [
+    {
+      "charge_type": "rent",
+      "total_amount": 490814.0
+    },
+    {
+      "charge_type": "trashrem",
+      "total_amount": 8460.0
+    },
+    {
+      "charge_type": "petrent",
+      "total_amount": 3350.0
+    },
+    {
+      "charge_type": "mtmf",
+      "total_amount": 1900.0
+    },
+    {
+      "charge_type": "premf",
+      "total_amount": 200.0
+    },
+    {
+      "charge_type": "conc",
+      "total_amount": -500.0
+    },
+    {
+      "charge_type": "employ",
+      "total_amount": -2000.0
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "summary_section_found": false,
+  "total_units": 100,
+  "total_actual_rent": 169000.4,
+  "average_rent": 1690.0,
+  "occupancy_rate": 0.96,
+  "total_market_rent": 195800.6,
+  "total_square_feet": 0.0,
+  "status_breakdown": [
+    {
+      "status": "Vacant",
+      "count": 4
+    },
+    {
+      "status": "Occupied",
+      "count": 96
+    }
+  ],
+  "charge_codes": [
+    {
+      "charge_type": "gtol_gain_to_lease_in_force",
+      "total_amount": 0.0
+    },
+    {
+      "charge_type": "gtor_gain_to_lease_in_force",
+      "total_amount": -16.0
+    },
+    {
+      "charge_type": "hudr_hud_rent",
+      "total_amount": 3672.0
+    },
+    {
+      "charge_type": "ltol_loss_to_lease_in_force",
+      "total_amount": 0.0
+    },
+    {
+      "charge_type": "ltor_loss_to_lease_in_force",
+      "total_amount": 6089.6
+    },
+    {
+      "charge_type": "mtom_month_to_month_charges",
+      "total_amount": 300.0
+    },
+    {
+      "charge_type": "p_gtol",
+      "total_amount": 16.0
+    },
+    {
+      "charge_type": "p_ltol",
+      "total_amount": 15961.2
+    },
+    {
+      "charge_type": "p_vac",
+      "total_amount": 9223.0
+    },
+    {
+      "charge_type": "park_parking",
+      "total_amount": 845.0
+    },
+    {
+      "charge_type": "petr_pet_rent",
+      "total_amount": 315.0
+    },
+    {
+      "charge_type": "rent_rent",
+      "total_amount": 169000.4
+    },
+    {
+      "charge_type": "rll_pdlw",
+      "total_amount": 686.0
+    },
+    {
+      "charge_type": "rllg_pdlw_legacy",
+      "total_amount": 10.0
+    },
+    {
+      "charge_type": "stor_storage_space",
+      "total_amount": 275.0
+    },
+    {
+      "charge_type": "vac_vacancy_loss",
+      "total_amount": 0.0
+    },
+    {
+      "charge_type": "w_d_washer_dryer_rental_charges",
+      "total_amount": 615.0
+    }
+  ]
+}

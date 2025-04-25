@@ -1,0 +1,41 @@
+{
+  "summary_section_found": false,
+  "total_units": 224,
+  "total_actual_rent": 348000.0,
+  "average_rent": 1553.57,
+  "occupancy_rate": 0.8571428571428571,
+  "total_market_rent": 388000.0,
+  "total_square_feet": 180000.0,
+  "status_breakdown": [
+    {
+      "status": "Occupied",
+      "count": 192
+    },
+    {
+      "status": "Vacant",
+      "count": 32
+    }
+  ],
+  "charge_codes": [
+    {
+      "charge_type": "market_rent",
+      "total_amount": 388000.0
+    },
+    {
+      "charge_type": "actual_rent",
+      "total_amount": 348000.0
+    },
+    {
+      "charge_type": "resident_deposit",
+      "total_amount": 49000.0
+    },
+    {
+      "charge_type": "other_deposit",
+      "total_amount": 0.0
+    },
+    {
+      "charge_type": "balance",
+      "total_amount": 75000.0
+    }
+  ]
+}
