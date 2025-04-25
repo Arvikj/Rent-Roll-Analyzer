@@ -1,4 +1,5 @@
-# AI Lease Insights – Rent Roll Summary & Validation Assistant
+# Rent-Roll-Analyzer
+## AI Lease Insights – Rent Roll Summary & Validation Assistant
 
 This project is designed to help analysts and real estate professionals extract or generate summaries from rent roll documents, which can often be messy, inconsistent, or incomplete. The goal is to automate what’s normally a manual and time-consuming task—gathering high-level metrics from these files—by using a combination of programmatic logic and large language models (LLMs). 
 
